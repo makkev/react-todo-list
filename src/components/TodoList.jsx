@@ -4,11 +4,11 @@ import TodoItem from './TodoItem';
 
 class TodoList extends React.Component {
     render() {
+        const items = ['First item', 'Second item', 'Third item'];
+
         return (
             <ul>
-                <TodoItem name="Item 1"/>
-                <TodoItem name="Item 2"/>
-                <TodoItem name="Item 3"/>
+                { items.map(function(item) { return <TodoItem name={item}/>})}
             </ul>
         );
     }
