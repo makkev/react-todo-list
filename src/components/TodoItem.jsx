@@ -2,7 +2,7 @@ import React from 'react';
 
 class TodoItem extends React.Component {
     render() {
-        return <li>Hello world</li>
+        return <li>{ this.props.name }</li>
     }
 }
 
