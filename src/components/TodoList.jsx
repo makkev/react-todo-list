@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TodoItem from './TodoItem';
+import TodoInput from './TodoInput';
 
 class TodoList extends React.Component {
     render() {
@@ -11,9 +12,12 @@ class TodoList extends React.Component {
         ];
 
         return (
-            <ul>
-                { items.map(item => <TodoItem name={item.name} done={item.done} />) }
-            </ul>
+            <div>
+                <ul>
+                    { items.map(item => <TodoItem name={item.name} done={item.done} />) }
+                </ul>
+                <TodoInput />
+            </div>
         );
     }
 }
