@@ -4,22 +4,22 @@ import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
 
 class TodoList extends React.Component {
+    constructor() {
+        super();
+
+        this.items = [];
+    }
     handleAddItem(name) {
         console.log("TodoList handleAddItem", name);
+        this.items.push({name: name, done: false});
     }
     render() {
-        const items = [
-            { name: "First item", done: false},
-            { name: "Second item", done: true},
-            { name: "Third item", done: false}
-        ];
-
         return (
             <div>
                 <ul>
-                    { items.map(item => <TodoItem name={item.name} done={item.done} />) }
+                    { this.items.map(item => <TodoItem name={item.name} done={item.done} />) }
                 </ul>
-                <TodoInput onAddItem={this.handleAddItem} />
+                <TodoInput onAddItem={this.handleAddItem.bind(this)} />
             </div>
         );
     }
