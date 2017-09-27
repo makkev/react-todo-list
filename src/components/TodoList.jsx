@@ -19,8 +19,12 @@ class TodoList extends React.Component {
 
     handleToggleDone(item) {
         console.log(item);
+        const newItems = this.state.items.slice();
+        newItems[newItems.indexOf(item)].done = !item.done;
+
+        this.setState({ items: newItems });
     }
-    
+
     render() {
         return (
             <div>
