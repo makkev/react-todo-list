@@ -7,17 +7,20 @@ class TodoList extends React.Component {
     constructor() {
         super();
 
-        this.items = [];
+        this.state = {
+            items: []
+        };
     }
     handleAddItem(name) {
         console.log("TodoList handleAddItem", name);
-        this.items.push({name: name, done: false});
+        const newItems = this.state.items.concat({ name: name, done: false });
+        this.setState({ items: newItems });
     }
     render() {
         return (
             <div>
                 <ul>
-                    { this.items.map(item => <TodoItem name={item.name} done={item.done} />) }
+                    { this.state.items.map(item => <TodoItem name={item.name} done={item.done} />) }
                 </ul>
                 <TodoInput onAddItem={this.handleAddItem.bind(this)} />
             </div>
