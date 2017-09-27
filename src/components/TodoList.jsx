@@ -4,6 +4,9 @@ import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
 
 class TodoList extends React.Component {
+    handleAddItem(name) {
+        console.log("TodoList handleAddItem", name);
+    }
     render() {
         const items = [
             { name: "First item", done: false},
@@ -16,7 +19,7 @@ class TodoList extends React.Component {
                 <ul>
                     { items.map(item => <TodoItem name={item.name} done={item.done} />) }
                 </ul>
-                <TodoInput />
+                <TodoInput onAddItem={this.handleAddItem} />
             </div>
         );
     }
