@@ -4,6 +4,7 @@ class TodoInput extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         console.log(this.refs.input.value);
+        this.refs.input.value = '';
     }
     render() {
         return (
