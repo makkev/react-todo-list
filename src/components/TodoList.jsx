@@ -16,11 +16,16 @@ class TodoList extends React.Component {
         const newItems = this.state.items.concat({ name: name, done: false });
         this.setState({ items: newItems });
     }
+
+    handleToggleDone(item) {
+        console.log(item);
+    }
+    
     render() {
         return (
             <div>
                 <ul>
-                    { this.state.items.map(item => <TodoItem name={item.name} done={item.done} />) }
+                    { this.state.items.map(item => <TodoItem name={item.name} done={item.done} onToggleDone={this.handleToggleDone.bind(this, item)} />) }
                 </ul>
                 <TodoInput onAddItem={this.handleAddItem.bind(this)} />
             </div>
